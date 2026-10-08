@@ -94,7 +94,7 @@ void atividade2() {
     }
 }
 
-// ----- Atividade 2 --------------------------------------------------------------- //
+// ----- Atividade 3 --------------------------------------------------------------- //
 
 struct aluno {
     char nome[50];
@@ -131,7 +131,7 @@ void ImprimirAluno(struct aluno setAluno) {
 void atividade3() {
 
     struct aluno listaDeAlunos[3];
-    int listaDeAlunos = 0;
+    int totalAlunos = 0;
     
     for (int i = 0; i < 3; i++) {
         listaDeAlunos[i] = lerPessoa();
@@ -141,6 +141,79 @@ void atividade3() {
     for (int i = 0; i < totalAlunos; i++) {
         ImprimirPessoa(listaDeAlunos[i]);
     }
+}
+
+// ----- Atividade 4 --------------------------------------------------------------- //
+
+struct Aluno2 {
+    int matricula;
+    char nome[50];
+    int nota1, nota2, nota3;
+};
+
+struct Aluno2 lerAluno2() {
+    struct Aluno2 setAluno;
+
+    printf("=== Informe o Aluno ===\n\n");
+
+    printf("Digite o nome do aluno: ");
+    scanf(" %[^\n]", &setAluno.nome); 
+
+    printf("Digite a idade do aluno: ");
+    scanf("%d", &setAluno.idade); 
+
+    printf("Digite a nota do aluno na prova 1: ");
+    scanf(" %d", &setAluno.nota1); 
+
+    printf("Digite a nota do aluno na prova 2: ");
+    scanf(" %d", &setAluno.nota2); 
+
+    printf("Digite a nota do aluno na prova 3: ");
+    scanf(" %d", &setAluno.nota3); 
+}
+
+struct Pessoa ImprimirAluno2() {
+    struct Pessoa setAluno2;
+
+    int nota = (setAluno.nota1 + setAluno.nota2 + setAluno.nota3) / 3;
+
+    printf("\n=============== \nMatricula: %d \nAluno: %s \nMedia: %n \n===============\n", setAluno.matricula, setAluno.nome, nota)
+    if (nota > 5) {
+        printf("APROVADO \n===============\n")
+    }else {
+        printf("REPROVADO \n===============\n")
+    }
+
+    return setAluno2;
+}
+
+void atividade4() {
+    struct  Aluno2 listaDeAlunos2[5];
+    int totalAlunos2 = 0;
+
+    struct Aluno2 alunoatual;
+
+    int manota = -1;
+    int menota = 11;
+
+
+    for (int i = 0; i < 5; i++) {
+        listaDeAlunos2[i] = lerAluno2();
+        totalAlunos2++;
+    }
+    for (int i = 0; i < totalAlunos2; i++) {
+        ImprimirAluno2(listaDeAlunos2[i])
+
+        alunoatual = ImprimirAluno2()
+
+        if (alunoatual.nota > manota){
+            manota = alunoatual.nota;
+        }if (alunoatual.nota < menota){
+            menota = alunoatual.nota;
+        }
+    }
+
+    printf("\n=============== \nMaior nota: %d \nMenor nota: %d \n===============\n", manota, menota)
 }
 
 // ----- Seletor ------------------------------------------------------------------- //
@@ -166,6 +239,9 @@ void seletorDeAtividade() {
             case 3:
                 atividade3();
                 break;
+            case 3:
+                atividade4();
+                break;            
             default:
                 printf("Opcao invalida! Tente novamente.\n");
                 break;
